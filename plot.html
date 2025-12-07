@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plot Division | MapMyPlot</title>
+  <link rel="stylesheet" href="plot.css" />
+  <link rel="icon" href="./assets/logo.png" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+</head>
+<body>
+
+  <!-- ========================= HEADER ========================= -->
+  <header>
+    <a href="index.html" class="logo-container"></a>
+    <nav class="links">
+      <a href="index.html" data-i18n="header.home">Home</a>
+      <a href="how-to-use.html" data-i18n="header.howToUse">How To Use</a>
+      <a href="contact.html" data-i18n="header.contact">Contact</a>
+    </nav>
+    <a class="logout-button" href="index.html">
+      <div data-i18n="header.logout">Log Out <i class="fas fa-arrow-right"></i></div>
+    </a>
+    <div class="right">
+      <div class="toggle-wrapper">
+        <input type="checkbox" id="toggle-checkbox"/>
+        <label for="toggle-checkbox" class="toggle-label">
+          <span class="day-mode-text" data-i18n="header.dayMode">Day Mode</span>
+          <div class="toggle-image"></div>
+          <span class="night-mode-text" data-i18n="header.nightMode">Night Mode</span>
+        </label>
+      </div>
+      <div class="language-selector">
+        <label for="language" data-i18n="header.languageLabel">🌐 Language</label>
+        <select id="language">
+          <option value="en">English</option>
+          <option value="hi">हिन्दी</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================= MAIN LAYOUT ========================= -->
+  <main class="plot-main">
+
+    <!-- LEFT: Canvas Section -->
+    <section class="canvas-container">
+      <!-- Toolbar -->
+      <div class="canvas-toolbar">
+        <div class="toolbar-actions">
+          <button id="uploadBtn" >Upload Image</button>
+          <button id="drawBtn" >Draw</button>
+          <button id="undoBtn" >Undo</button>
+          <button id="okBtn" >OK</button>
+          <button id="measureBtn" >Measure Distance</button>
+          <button id="resetBtn" >Reset</button>
+        </div>
+        <input type="file" id="imageUpload" accept="image/*" hidden>
+      </div>
+
+      <div id="modeIndicator" class="mode-indicator">Mode: Normal</div>
+
+      <!-- Canvas -->
+      <canvas id="landCanvas"></canvas>
+    </section>
+
+    <!-- RIGHT: Control Panel -->
+    <aside class="control-panel">
+      <h2 data-i18n="controlPanel.title">Plot Settings</h2>
+
+      <div class="input-group">
+        <input type="number" id="numPartitions" min="1" placeholder="Number of partitions" data-i18n-placeholder="controlPanel.numPartitionsPlaceholder"/>
+      </div>
+
+      <div class="input-group">
+        <input type="number" id="refLength" placeholder="Enter first side length" data-i18n-placeholder="controlPanel.refLengthPlaceholder"/>
+        <small data-i18n="controlPanel.refLengthNote">(Used to calculate actual scale)</small>
+      </div>
+
+<div class="unit-group" >
+  <div class="length-unit">
+       <label for="lengthUnit">Length Unit</label>
+       <select id="lengthUnit">
+    <option value="m">Meters</option>
+    <option value="ft">Feet</option>
+    <option value="in">Inches</option>
+  </select>
+  </div>
+
+  <div class="area-unit">
+    <label for="areaUnit">Area Unit:</label>
+   <select id="areaUnit">
+    <option value="m">m²</option>
+    <option value="ft">ft²</option>
+    <option value="in">in²</option>
+    <option value="acre">Acres</option>
+  </select>
+  </div>
+</div>
+
+
+      <div class="actions">
+        <button id="generateBtn">▶️ Generate Partition</button>
+        <button id="customizeBtn">Customize Partitions</button>
+      </div>
+
+      <div id="measureDistanceBox" class="input-group" style="display:none;">
+  <label for="boundaryDistance" data-i18n="controlPanel.boundaryDistanceLabel">Distance Along Boundary</label>
+  <input type="text" id="boundaryDistance" readonly />
+</div>
+
+      <div class="results-panel">
+        <h3 data-i18n="controlPanel.resultsPanelTitle">Area Results</h3>
+        <p><strong data-i18n="controlPanel.totalAreaLabel">Total Area:</strong> <span id="totalArea" data-i18n="tableDefaults.area">—</span></p>
+        <table class="area-table">
+          <thead>
+            <tr>
+              <th data-i18n="controlPanel.tableHeaders.partition">Partition</th>
+              <th data-i18n="controlPanel.tableHeaders.area">Area</th>
+            </tr>
+          </thead>
+          <tbody id="areaTable">
+            <tr>
+              <td data-i18n="tableDefaults.partition1">P1</td>
+              <td data-i18n="tableDefaults.area">—</td>
+            </tr>
+            <tr>
+              <td data-i18n="tableDefaults.partition2">P2</td>
+              <td data-i18n="tableDefaults.area">—</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="actions">
+        <button id="exportBtn" data-i18n="controlPanel.exportBtn">💾 Export</button>
+      </div>
+    </aside>
+
+  </main>
+
+  <!-- ========================= FOOTER ========================= -->
+  <footer>
+    <p data-i18n="footer.copyright">© 2025 Map My Plot. All rights reserved.</p>
+  </footer>
+
+  <!-- ========================= UPLOAD MODAL ========================= -->
+  <div id="uploadModal" class="upload-modal">
+    <div class="upload-modal-content">
+      <h3 data-i18n="uploadModal.title">Select Image to Upload</h3>
+      <button id="chooseFileBtn" data-i18n="uploadModal.chooseFileBtn">Choose File</button>
+      <button id="closeModalBtn" data-i18n="uploadModal.closeModalBtn">Cancel</button>
+    </div>
+  </div>
+
+  <!-- ========================= SCRIPT ========================= -->
+  <script src="plot.js"></script>
+</body>
+</html>
+
