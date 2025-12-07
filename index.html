@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home | MapMyPlot</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="icon" href="./assets/logo.png" type="image/x-icon" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Roboto&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <header>
+      <!-- Logo -->
+      <a href="index.html" class="logo-container"></a>
+
+      <!-- Navigation Links -->
+      <nav class="links">
+        <a href="index.html">Home</a>
+        <a href="#features">Features</a>
+        <a href="#about">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="login.html" class="login-button">Login</a>
+      </nav>
+
+      <!-- Right-side: Theme Toggle and Language Selector -->
+      <div class="right">
+        <!-- Theme Toggle -->
+        <div class="toggle-wrapper">
+          <input type="checkbox" id="toggle-checkbox" />
+          <label for="toggle-checkbox" class="toggle-label">
+            <span class="day-mode-text">Day Mode</span>
+            <div class="toggle-image"></div>
+            <span class="night-mode-text">Night Mode</span>
+          </label>
+        </div>
+
+        <!-- Language Selector -->
+        <div class="language-selector">
+          <label for="language">🌐 Language</label>
+          <select id="language">
+            <option value="en">English</option>
+            <option value="hi">हिन्दी</option>
+            <option value="pa">ਪੰਜਾਬੀ</option>
+            <option value="mr">मराठी</option>
+          </select>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <!-- Hero Section -->
+      <div class="hero-section">
+        <div class="hero-tagline">
+          <h1>
+            Divide Land, Not Families<br /><span>Land Division Made Easy</span>
+          </h1>
+          <h2 id="TypingTagline"></h2>
+        </div>
+      </div>
+
+      <!-- Features Section -->
+ <section class="features-section" id="features">
+  <h2 class="feature-title">Key Features</h2>
+  <div class="features-grid">
+    <div class="feature-card">
+      <i class="fas fa-map-marked-alt"></i>
+      <h3>Smart Land Mapping</h3>
+      <p>
+        Accurately map and divide land using modern tools and eliminate
+        manual errors.
+      </p>
+    </div>
+    <div class="feature-card">
+      <i class="fas fa-balance-scale"></i>
+      <h3>Dispute Resolution</h3>
+      <p>
+        Resolve family and land disputes with clarity through visual
+        representation.
+      </p>
+    </div>
+    <div class="feature-card">
+      <i class="fas fa-rupee-sign"></i>
+      <h3>Affordable & Transparent</h3>
+      <p>
+        Cost-effective solution compared to traditional patwari methods
+        with full transparency.
+      </p>
+    </div>
+    <div class="feature-card">
+      <i class="fas fa-language"></i>
+      <h3>Multi-Language Support</h3>
+      <p>
+        Available in English, Hindi, Punjabi, Marathi – making it
+        accessible to everyone.
+      </p>
+    </div>
+
+    <!-- New Features -->
+    <div class="feature-card">
+      <i class="fas fa-draw-polygon"></i>
+      <h3>Boundary Drawing</h3>
+      <p>
+        Draw custom land boundaries with precision and create accurate
+        partitions.
+      </p>
+    </div>
+    <div class="feature-card">
+      <i class="fas fa-sliders-h"></i>
+      <h3>Partition Customization</h3>
+      <p>
+        Drag and adjust partition lines to fine-tune divisions without
+        affecting total area.
+      </p>
+    </div>
+    <div class="feature-card">
+      <i class="fas fa-ruler-combined"></i>
+      <h3>Measurement Tool</h3>
+      <p>
+        Measure distances directly on the plot to validate scale and
+        reference length.
+      </p>
+    </div>
+    <div class="feature-card">
+      <i class="fas fa-calculator"></i>
+      <h3>Equal Area Division</h3>
+      <p>
+        Automatically divide land into equal areas using smart algorithms
+        with accuracy.
+      </p>
+    </div>
+    <div class="feature-card">
+      <i class="fas fa-exchange-alt"></i>
+      <h3>Unit Conversion</h3>
+      <p>
+        Switch between units (meter, feet, etc.) for convenient
+        calculation and display.
+      </p>
+    </div>
+    <div class="feature-card">
+      <i class="fas fa-file-pdf"></i>
+      <h3>Export Reports</h3>
+      <p>
+        Generate professional PDF reports with partition details,
+        boundary figure, and page numbers.
+      </p>
+    </div>
+    <div class="feature-card">
+      <i class="fas fa-image"></i>
+      <h3>Image Upload</h3>
+      <p>
+        Upload and overlay maps or layouts to enhance boundary drawing and
+        accuracy.
+      </p>
+    </div>
+    <div class="feature-card">
+      <i class="fas fa-search-plus"></i>
+      <h3>Pan & Zoom</h3>
+      <p>
+        Navigate smoothly across large maps with pan and zoom
+        functionality.
+      </p>
+    </div>
+    <div class="feature-card">
+      <i class="fas fa-toggle-on"></i>
+      <h3>Mode Indicators</h3>
+      <p>
+        Easily switch between Draw, Measure, Customize, and Normal modes
+        with clear indicators.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+      <!-- About Section -->
+     <section class="about-section" id="about">
+  <h2 class="section-title">About MapMyPlot</h2>
+  <div class="about-content">
+    <p>
+      <strong>MapMyPlot</strong> is an innovative web-based platform designed to
+      simplify and modernize the process of <strong>land mapping</strong> and 
+      <strong>division</strong> in India. 
+      Our tool replaces outdated, manual patwari methods with a precise and 
+      transparent digital solution.
+    </p>
+    <p>
+      Whether you’re handling a <em>family inheritance</em>, preparing for a 
+      <em>sale</em>, or resolving a <em>legal settlement</em>, MapMyPlot 
+      empowers you to <strong>visualize</strong>, <strong>partition</strong>, 
+      and <strong>document</strong> land accurately—without hassle.
+    </p>
+    <p>
+      Our mission is to make land management 
+      <strong>transparent</strong>, <strong>accessible</strong>, and 
+      <strong>accurate</strong> for every citizen, while ensuring 
+      <strong>affordability</strong> and <strong>fairness</strong> in the process.
+    </p>
+  </div>
+</section>
+
+    </main>
+
+    <footer>
+      <div class="footer1">
+        <!-- Logo and Description -->
+        <div class="footer-logo">
+          <div class="logo"></div>
+          <p>
+            Making land division <span>Simple</span>,
+            <span>Transparent</span>,<br />
+            and <span>Accessible</span> for every Indian citizen.
+          </p>
+        </div>
+
+        <div class="footer-links">
+          <div class="quick-links">
+            <h2>Quick Links</h2>
+            <a href="#">Home</a>
+            <a href="#features">Features</a>
+            <a href="#about">About</a>
+            <a href="contact.html" class="contact">Contact</a>
+            <a href="login.html">Login</a>
+          </div>
+
+          <div class="connect-us">
+            <h2>Connect With Us</h2>
+            <div class="social-icons">
+              <a href="#">Facebook <i class="fab fa-facebook-f"></i></a>
+              <a href="#">Instagram <i class="fab fa-instagram"></i></a>
+              <a href="#">Twitter <i class="fab fa-twitter"></i></a>
+              <a href="#">Linkedin <i class="fab fa-linkedin-in"></i></a>
+            </div>
+          </div>
+
+          <div class="legal">
+            <h2>Legal</h2>
+            <div class="legal-details">
+              <a href="terms-condition.html"
+                ><i class="fa-solid fa-file-contract"></i>Terms & Condition</a
+              >
+              <a href="privacy-policy.html"
+                ><i class="fas fa-user-secret"></i>Privacy</a
+              >
+            </div>
+          </div>
+        </div>
+        <!-- Close footer-links -->
+      </div>
+      <!-- Close footer1 -->
+
+      <!-- Bottom Line -->
+      <div class="bottom-line">
+        <p>© 2025 Map My Plot. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="index.js"></script>
+  </body>
+</html>

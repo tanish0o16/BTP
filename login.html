@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login | MapMyPlot</title>
+  <link rel="stylesheet" href="login.css" />
+  <link rel="icon" href="./assets/logo.png" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body class="login-body">
+  <section class="login-card">
+    <!-- Close Button -->
+    <a class="cross" href="index.html"><i class="fa-solid fa-xmark"></i></a>
+     
+    <!-- Welcome Text -->
+    <h1 class="login-title">
+      Welcome Back! <img src="./assets/welcome-back-emoji.png" alt="Welcome Emoji">
+    </h1>
+    <p class="login-subtitle">Login to manage your plots with ease and transparency.</p>
+
+    <!-- Login Form -->
+    <form class="login-form" action="" method="post">
+      <div class="input-group delay1">
+        <i class="fa-solid fa-envelope"></i>
+        <input type="email" name="email" placeholder="Email Address" required />
+      </div>
+
+      <div class="input-group delay2">
+        <i class="fa-solid fa-lock"></i>
+        <input type="password" name="password" placeholder="Password" required />
+      </div>
+
+      <div class="options-row delay3">
+        <label class="remember">
+          <input type="checkbox" /> <span>Remember me</span>
+        </label>
+        <a href="#" class="forgot-link">Forgot Password?</a>
+      </div>
+
+      <button type="submit" class="primary-btn delay4">Login</button>
+
+      <p class="signup-text delay5">
+        Don’t have an account? <a href="#">Sign Up</a>
+      </p>
+    </form>
+  </section>
+  <script src="login.js"></script>
+</body>
+</html>
+
